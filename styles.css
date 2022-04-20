@@ -5,7 +5,6 @@
 }
 body, html {
   height: 100vh;
-  overflow-x: hidden;
 }
 
 body {
@@ -13,6 +12,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  overflow-x: hidden;
 }
 
 li {
@@ -87,25 +87,14 @@ li {
 #cat-paw {
   height: 100px;
   width: 400px;
-}
-
-
-/* .cat-paw, */
-#cat-paw {
-  /* opacity: 0; */
-
   right: 0;
   transform: translateX(100%);
-  /* transition: translate; */
-  /* transition-duration: 10s; */
-  /* transition-delay: 0s; */
-  /* animation: slidein 1.5s ease-in-out; */
 }
 
 /* #cat-pic.show, */
 #cat-paw.show {
   opacity: 1;
-  animation: slidein 1.5s ease-in-out infinite;
+  animation: slidein 1.5s ease-in-out;
 }
 
 #cat-paw.retract {
