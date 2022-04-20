@@ -3,14 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-body, html, .cat-main {
-  height: 100%;
+body, html {
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 li {
@@ -20,8 +22,17 @@ li {
   line-height: 2rem;
 }
 
+/* .cat-paw {
+  width: 100vw;
+} */
+
+.hide {
+  opacity: 0;
+}
+
 .slide {
   animation: slide 1s forwards;
+  animation-delay: 1.5s;
 }
 
 @keyframes slide {
@@ -33,20 +44,26 @@ li {
   }
 }
 
-.cat-main {
+/* .cat-main {
   height: 100vh;
   width: 100vw;
   position: absolute;
   left: 0;
   overflow: hidden;
-}
+} */
 
-.cat.left {
+/* .cat.left {
   position: absolute;
   transform: rotate(90deg);
   left: 0;
 }
-.cat.top {
+.cat.right {
+  position: absolute;
+  transform: rotate(270deg);
+  right: 0;
+  bottom: 0;
+} */
+/* .cat.top {
   position: absolute;
   transform: rotate(180deg);
   top: 0;
@@ -56,51 +73,60 @@ li {
   position: absolute;
   transform: rotate(-180deg);
   right: 0;
-}
-.cat.right {
-  position: absolute;
-  transform: rotate(270deg);
-  right: 0;
-  bottom: 0;
-}
+} */
 
-#cat-paw {
-  height: 50px;
-  width: 400px;
-  background-color: rgba(0, 0, 0, 0.484);
-}
-
-#cat-pic,
+.cat-paw,
 #cat-paw {
   position:absolute;
-  bottom: 0;
-  transform: translateY(100%);
-  transition: translate;
-  transition-duration: 10s;
-  transition-delay: 0s;
-  animation: slidedown 4.5s ease-in-out;
+}
+.cat-paw {
+  width: 100vw;
+  height: 100vh;
 }
 
-#cat-pic.show,
+#cat-paw {
+  height: 100px;
+  width: 400px;
+}
+
+
+/* .cat-paw, */
+#cat-paw {
+  /* opacity: 0; */
+
+  right: 0;
+  transform: translateX(100%);
+  /* transition: translate; */
+  /* transition-duration: 10s; */
+  /* transition-delay: 0s; */
+  /* animation: slidein 1.5s ease-in-out; */
+}
+
+/* #cat-pic.show, */
 #cat-paw.show {
   opacity: 1;
-  animation: slideup 701ms ease-in-out;
+  animation: slidein 1.5s ease-in-out infinite;
 }
 
-@keyframes slideup {
+#cat-paw.retract {
+  opacity: 1;
+  animation: slideout 400ms ease-in-out;
+}
+
+@keyframes slidein {
   from {
-    transform: translateY(100%);
+    transform: translateX(100%);
   }
   to {
-    transform: translateY(5%);
+    transform: translateX(5%);
   }
 }
 
-@keyframes slidedown {
+@keyframes slideout {
   from {
-    transform: translateY(5%);
+    transform: translateX(5%);
   }
   to {
-    transform: translateY(100%);
+    transform: translateX(100%);
   }
 }
